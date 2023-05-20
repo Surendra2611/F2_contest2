@@ -1,69 +1,99 @@
-body{
-    background-color: black;
-    color: lightgray;
-    padding: 100px 60px;
-    font-family: 'Inter', sans-serif;
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
     
-}
 
-.div{
-    font-size: 24px;
-    margin-bottom: 30px;
-}
+    <title>Document</title>
 
+</head>
 
+<body>
 
-#dropdown{
-    font-size: 24px;
-    padding: 15px;
-    background-color: black;
-    color: white;
-    margin: 30px 0px;
-}
+<select name="Profession" id="forProfession" required>
 
-.btn{
+    <option value="" disabled selected>Profession</option>
+
+    <option value="Developer">Developer</option>
+
+    <option value="Admin">Admin</option>
+
+</select>
+
+<div class="upper" id="insert">
+
     
-    font-size: 24px;
-    margin: 45px 0px;
-    padding: 15px 70px ;
-    margin-bottom: 100px;
-}
 
+</div>
 
+<div class="forButton">
 
-.subdivclass{
-    display: flex;
-    font-size: 18px;
-    border: 1px solid white;
-    border-radius: 10px;
-    padding: 15px 20px;
-    margin: 25px 0px;
-    justify-content: space-around;
-    width: 500px;
-}
+    <button onclick="filter()">Filter</button>
 
-.add-user-section{
-    display: flex;
-    font-size: 18px;
-    justify-content: space-between;
-    margin-top: 30px;
-}
+</div>
 
-.add{
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    background-color: black;
-    
-    border-radius: 10px;
-    
-}
+<div class="title">
 
-.input{
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    padding: 15px 20px;
-    margin: 15px 0px;
-    background-color: black;
-    color: lightgray;
-}
+    <p>Add new user</p>
+
+</div>
+
+<div class="container">
+
+    <div class="inputFeild">
+
+        <h4>Name</h4>
+
+        <div>
+
+            <input class="bottom" type="text" placeholder="Enter name">
+
+        </div>
+
+    </div>
+
+    <div class="inputFeild">
+
+        <h4>Profession</h4>
+
+        <div>
+
+            <input class="bottom" type="text" placeholder="Enter profession">
+
+        </div>
+
+    </div>
+
+    <div class="inputFeild">
+
+        <h4>Age</h4>
+
+        <div>
+
+            <input class="bottom" type="text" placeholder="Enter age">
+
+        </div>
+
+    </div>
+
+</div>
+
+<button onclick="updateDataBase()">Add User</button>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
+        
