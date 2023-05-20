@@ -1,112 +1,84 @@
-//intialising array
-
-let arr = [
-    {
-        id:1,name:'john',age:'18',profession:'developer'
-    },
-
-    {
-        id:2, name:'jack',age:'20', profession:'developer'
-    },
-    
-    {
-            id:3, name:'karen', age:'19',profession:'admin'
-    }
-]
-
-//displaying the array data
-let displaydiv = document.getElementById("display")
 
 
-function adddata(arr, index = 0) {
-    if (index >= arr.length) {
-      return;
-    }
-  
-    let subdiv = document.createElement("div");
-    subdiv.className = "subdivclass";
-  
-    let id = document.createElement("div");
-    id.innerText = arr[index].id;
-  
-    let name = document.createElement("div");
-    name.innerText = "Name: " + arr[index].name;
-  
-    let age = document.createElement("div");
-    age.innerText = "Age: " + arr[index].age;
-  
-    let profession = document.createElement("div");
-    profession.innerText = "Profession: " + arr[index].profession;
-  
-    subdiv.append(id);
-    subdiv.append(name);
-    subdiv.append(profession);
-    subdiv.append(age);
-  
-    displaydiv.append(subdiv);
-  
-    adddata(arr, index + 1);
-  }
+// user Array
 
-  adddata(arr,0)
+let users = [
+  { id: 1, name: "John", profession: "developer", age: 18 },
+  { id: 2, name: "Jack", profession: "developer", age: 20 },
+  { id: 3, name: "Karen", profession: "admin", age: 19 }
+];
 
+// Display function
+function displayList(user) {
+  let parent = document.getElementById("display-user");
+  parent.innerHTML = "";
 
-
-
-
-// Function to filter users based on profession
-const filterBtn = document.getElementById('dropdown');
-
-function filterUsersByProfession() {
-    const selectedProfession = document.getElementById("dropdown").value;
-    const userList = document.getElementById("display");
-    userList.innerHTML = "";
-
-   
-  
-    if (!selectedProfession) {
-      alert('Please select a profession.');
-      
-      return;
-    }
-  
-    const filteredUsers = arr.filter(user => user.profession.toLowerCase() === selectedProfession.toLowerCase());
-    
-    if (filteredUsers.length === 0) {
-        alert('select a profession before clicking the button');
-        adddata(arr);
-      } else {
-        adddata(filteredUsers);
-      }
+  user.forEach(user => {
+    let container = document.createElement("div");
+    container.innerHTML = `
+    <p>${user.id}.</p>
+    <p>Name: ${user.name}</p>
+    <p>Profession: ${user.profession}</p>
+    <p>Age: ${user.age}</p>`;
+    parent.appendChild(container);
+  });
 }
 
+displayList(users);
 
 
-//adding users 
-
+// Add user Function
 function addUser() {
-    const name = document.getElementById('name').value;
-    const profession = document.getElementById('newProfession').value;
-    const age = document.getElementById('age').value;
-  
-    if (!name || !profession || !age) {
-      alert('Please enter all the details.');
-      return;
-    }
-  
-    const newUser = {
-      id: arr.length + 1,
-      name: name,
-      profession: profession,
-      age: age
+
+  let nameValue = document.getElementById("name-input").value;
+  let professionValue = document.getElementById("profession-input").value;
+  let ageValue = document.getElementById("age-input").value;
+
+  if(nameValue == "" || professionValue == "" || ageValue == ""){
+    alert("Please fill the details");
+  }else{
+    let obj = {
+      id: users.length + 1,
+      name: nameValue,
+      profession: professionValue,
+      age: ageValue
     };
   
-    arr.push(newUser);
-    displaydiv.innerHTML = ""; // Clear the existing content
-    adddata(arr);
+    users.push(obj);
+    displayList(users);
   
-    // Reset input fields
-    document.getElementById('name').value = '';
-    document.getElementById('newProfession').value = "";
-    document.getElementById('age').value = "";
+    document.getElementById("name-input").value = '';
+    document.getElementById("profession-input").value = '';
+    document.getElementById("age-input").value = '';
+    document.getElementById("profession").value = '';
   }
+
+}
+
+let addButton = document.getElementById("add-button");
+addButton.addEventListener("click", addUser);
+
+
+// Filter Function
+function filterList(){
+  let select = document.getElementById("profession").value;
+
+  let filterArr;
+  if(select == ""){
+    alert("select a profession before clicking the button");
+    filterArr = users;
+  }else{
+    filterArr = users.filter( ele =>{
+      return ele.profession === select;
+    });
+  }
+
+  displayList(filterArr);   
+}
+
+let filterButton = document.getElementById("filter-button");
+filterButton.addEventListener("click", filterList);      
+   
+  
+
+  
