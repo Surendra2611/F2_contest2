@@ -1,99 +1,64 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Frontend 2 Contest-2 May</title>
     <link rel="stylesheet" href="style.css">
-
-    
-
-    <title>Document</title>
-
 </head>
 
 <body>
+    <main>
+        <section id="display-filter-section">
+            <h2 class="heading">Filter ui cards via their profession.</h2>
+            <select name="profession" id="profession">
+                <option value="">Profession</option>
+                <option value="developer">developer</option>
+                <option value="admin">admin</option>
+            </select>
+            <div id="display-user">
+                <!-- User cards will be dynamically added here -->
+            </div>
+            <button id="filter-button" class="button">Filter</button>
+        </section>
 
-<select name="Profession" id="forProfession" required>
+        <section id="add-user-section">
+            <h2 class="heading">Add a new user</h2>
+            <div class="user-input">
+                <div class="enter-name">
+                    <label for="name-input">Enter Name:</label>
+                    <input type="text" id="name-input" required />
+                </div>
+                <div class="enter-profession">
+                    <label for="profession-input">Enter Profession:</label>
+                    <input type="text" id="profession-input" required />
+                </div>
+                <div class="enter-age">
+                    <label for="age-input">Enter Age:</label>
+                    <input type="text" id="age-input" required />
+                </div>
+            </div>
+            <button id="add-button" class="button">Add User</button>
+        </section>
+    </main>
 
-    <option value="" disabled selected>Profession</option>
-
-    <option value="Developer">Developer</option>
-
-    <option value="Admin">Admin</option>
-
-</select>
-
-<div class="upper" id="insert">
-
-    
-
-</div>
-
-<div class="forButton">
-
-    <button onclick="filter()">Filter</button>
-
-</div>
-
-<div class="title">
-
-    <p>Add new user</p>
-
-</div>
-
-<div class="container">
-
-    <div class="inputFeild">
-
-        <h4>Name</h4>
-
-        <div>
-
-            <input class="bottom" type="text" placeholder="Enter name">
-
-        </div>
-
-    </div>
-
-    <div class="inputFeild">
-
-        <h4>Profession</h4>
-
-        <div>
-
-            <input class="bottom" type="text" placeholder="Enter profession">
-
-        </div>
-
-    </div>
-
-    <div class="inputFeild">
-
-        <h4>Age</h4>
-
-        <div>
-
-            <input class="bottom" type="text" placeholder="Enter age">
-
-        </div>
-
-    </div>
-
-</div>
-
-<button onclick="updateDataBase()">Add User</button>
-
-    <script src="script.js"></script>
-
+    <script src="index.js"></script>
 </body>
 
 </html>
+
+    
+
+
+
+
+
+     
+
+
+
+
 
         
